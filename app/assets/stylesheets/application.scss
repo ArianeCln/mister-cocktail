@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+/*// Graphical variables*/
+@import "config/variables";
+@import "config/bootstrap_variables";
+
+/* CSS required for front gems */
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+/*// Your CSS*/
+@import "layout/index";
+@import "components/index";
+@import "pages/index";
+@import "vendor/index";
