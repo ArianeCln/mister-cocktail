@@ -48,3 +48,4 @@ group :development do
 end
 
 gem 'rspec-rails', group: [ :test ]
+gem 'simple_form'
