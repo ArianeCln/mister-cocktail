@@ -48,10 +48,12 @@ group :development do
 end
 
 gem 'rspec-rails', group: [ :test ]
-gem 'simple_form'
 
 #front gems
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+
+
+gem 'figaro'
