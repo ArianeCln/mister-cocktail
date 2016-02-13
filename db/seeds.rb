@@ -13,4 +13,7 @@ Ingredient.create(name: "rhum")
 Ingredient.create(name: "vodka")
 Ingredient.create(name: "coke")
 Ingredient.create(name: "gin")
-
+Ingredient.create(name: "ginger ale")
+Ingredient.create(name: "whiskey")
+Ingredient.create(name: "orange")
+Ingredient.create(name: "sweet vermouth")

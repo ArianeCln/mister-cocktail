@@ -1,21 +1,21 @@
-<div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('background.jpg');">
+<div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url("/assets/background.jpg)");">
   <div class="banner-content">
     <h1 class="text-center">All the cocktails</h1>
   </div>
 </div>
 
 
-<div class="container">
+<div class="container text-center">
   <div class="row">
       <% @cocktails.each do |cocktail|%>
-
-      <div class="col-xs-12 col-sm-4">
-        <div class="card">
-        <ul class="list-unstyled">
-          <li><h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3></li>
-        </ul>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <ul class="list-unstyled">
+              <li><h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3></li>
+              <li><%= image_tag cocktail.photo.url(:index) %></li>
+            </ul>
+          </div>
         </div>
-      </div>
       <%end%>
 
   </div>

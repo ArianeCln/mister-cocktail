@@ -1,38 +1,38 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="card">
 
-        <h1 class="text-center"><%= @cocktail.name %></h1>
-        <ul class="list-unstyled">
-          <% @cocktail.doses.each do |dose| %>
-          <li>
-            <%= dose.description %> of <%= dose.ingredient.name %>
-          </li>
-          <% end %>
-        </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="wrapper-form">
+          <div class="card">
+
+            <h1 class="text-center"><%= @cocktail.name %></h1>
+            <%= image_tag @cocktail.photo.url(:show), class: "center-block" %>
+
+            <ul class="list-unstyled ingredients">
+              <h5><strong>Ingredients : </strong> </h5>
+              <% @cocktail.doses.each do |dose| %>
+              <li>
+               <i class="fa fa-glass"></i> <em><%= dose.description %> of <%= dose.ingredient.name %></em>
+             </li>
+             <% end %>
+           </ul>
+
+         </div>
+         <hr>
+
+         <h5 class="text-center"><strong>Add a new Dose</strong></h5>
+         <%= simple_form_for [@cocktail, @dose] do |f| %>
+         <% if @dose.errors.any? %>
+         <% @dose.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+         <% end %>
+         <% end %>
+         <%= f.input :description, placeholder: "4cl" %>
+         <%= f.input :ingredient_id, collection: Ingredient.all, prompt: "Choose an ingredient" %>
+         <%= f.button :submit, class: "btn btn-primary btn-block" %>
+         <% end %>
 
       </div>
-      <hr>
-
-      <h5 class="text-center"><strong>Add a new Dose</strong></h5>
-      <%= simple_form_for [@cocktail, @dose] do |f| %>
-      <% if @dose.errors.any? %>
-        <% @dose.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      <% end %>
-
-
-      <%= f.input :description, placeholder: "4cl" %>
-      <%= f.input :ingredient_id, collection: Ingredient.all, prompt: "Choose an ingredient" %>
-      <%= f.button :submit, class: "btn btn-primary btn-block" %>
-      <% end %>
-
-
-
-      <%= link_to 'Back to cocktails', cocktails_path %>
     </div>
   </div>
 </div>
-
